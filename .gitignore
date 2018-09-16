@@ -12,3 +12,5 @@
 filters\.synctex\.gz
 
 *.toc
+
+*.gz
