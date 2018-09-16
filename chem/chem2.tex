@@ -1,0 +1,33 @@
+\documentclass[border=1pt]{standalone}
+\usepackage[europeanresistors,americaninductors,americancurrents]{circuitikz}
+\usepackage{amssymb}
+\begin{document}
+    \begin{circuitikz}[]
+        
+        \draw (0,0) coordinate(0)
+            to [R=$Z_{0}$]  (0,2)
+            to [R=$\frac{Z}{2}$,,i=$I_0$] ++(2,0) coordinate(1)
+            to [R=$G$] ++(0,-2) coordinate(2)
+            to (0,0);
+        \draw (1) 
+            to [R=$\frac{Z}{2}$]  ++(2,0) coordinate(3);
+        \draw [dashed,-*](3) to ++(1,0) coordinate (Vn);
+        \draw (Vn) to [R=$\frac{Z}{2}$,-*,i>_=$I_n$] ++(2.5,0) coordinate (u0)
+            to [R=$G$]++(0,-2);
+        \draw (u0) to [R=$\frac{Z}{2}$,i>_=$I_{n+1}$] ++(2.5,0) coordinate (Vn1);
+
+        \draw [*-,dashed](Vn1) to ++(1,0) coordinate (6);
+        \draw (6) 
+            to [R=$\frac{Z}{2}$]  ++(2,0) coordinate(7)
+            to [R=$G$] ++(0,-2);
+        \draw (7) 
+            to [R=$\frac{Z}{2}$,i=$I_n$,-*]  ++(3,0) coordinate(VN) 
+            to [R=$Z_{N}$] ++(0,-2)
+            to (0);
+
+        \draw (Vn) node [above] {$V_n$};
+        \draw (VN) node [above] {$V_N$};
+        \draw (u0) node [above] {$U_0$};
+        \draw (Vn1) node [above] {$V_{n+1}$};
+    \end{circuitikz}
+\end{document}
