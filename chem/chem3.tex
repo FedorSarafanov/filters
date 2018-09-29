@@ -1,0 +1,34 @@
+\documentclass[border=1pt]{standalone}
+\usepackage[europeanresistors,americaninductors,americancurrents,siunitx]{circuitikz}
+\usepackage{amssymb}
+
+
+\begin{document}
+    \begin{circuitikz}[]
+        \draw (0,0) coordinate(0)
+            to [L=,l^=$L$,a=4.35<\milli\henry>] ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        
+
+        \draw (1) 
+            to [L,l^=$L$,a=8.5<\milli\henry>]  ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        \draw (1) 
+            to [L,l^=$L$,a=8.5<\milli\henry>]  ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        \draw(1)
+            to [L,l^=$L$,a=8.5<\milli\henry>]  ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        \draw(1)
+            to [L,l^=$L$,a=8.5<\milli\henry>]  ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        \draw(1)
+            to [L,l^=$L$,a=8.5<\milli\henry>]  ++(3,0) coordinate(1)
+            to [C,l^=$C$,a_=0.025<\micro\farad>] ++(0,-3) coordinate(3);
+        \draw (1) 
+            to [L,l^=$L$,a=4.25<\milli\henry>] ++ (3,0)
+            to [R,,l=$R$,a=583<\ohm>]++(0,-3)
+            to (0,-3)[-*];
+        \draw (0,0) to (1,0)[*-];
+    \end{circuitikz}
+\end{document}

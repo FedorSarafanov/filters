@@ -217,6 +217,126 @@ I_n=G_x(A_1e^{-i\theta}+A_2e^{i\theta}).
 
 Решая совместно дисперсионное уравнение (\ref{eq:3.4}) и характеристическое уравнение (\ref{eq:4.4}), найдём спектр собственных (нормальных) частот фильтра и соответствующий ему спектр значений постоянной распространения $\theta$. Очевидно, что этот спектр будет зависеть не только от параметров звена фильтра, но и от условий на его концах. Отметим также, что число нормальных частот всегда совпадает с числом степеней свободы системы.
 
+
+\section{Практическая часть}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Фильтр низких частот}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{chem/chem3}
+	\caption{ Схема использованного ФНЧ из 6-ти Т-образных звеньев}
+	\label{fig:chem3}
+\end{figure}
+Параметры используемого фильтра:
+$\nu_{\text{гр}}=21.83 \text{ кГц} ,\,R=583\text{ Ом}$, значения C и L указаны на схеме.
+
+Амплитудно- и фазочастотные характеристики фильтра показаны на рисунках (\ref{fig:figure1}) и (\ref{fig:figure2}) соответственно.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[]{graph/graph1}
+	\caption{АЧХ}
+	\label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[]{graph/graph2}
+	\caption{ФЧХ}
+	\label{fig:figure2}
+\end{figure}
+
+\begin{table}[H]
+\caption{\label{tab:1}Время задержки для сигнала на выходе ФНЧ}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\hline
+		Число звеньев & Время задержки, мкс \\
+		\hline
+		6 & 100\\
+		5 & 80\\
+		4 & 70\\
+		3 & 50\\
+		2 & 40\\
+		1 & 20\\
+		\hline
+		Среднее (на одно звено) & 60 \\
+		\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Фильтр высоких частот}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{chem/chem5}
+	\caption{ Схема использованного ФВЧ из 6-ти Т-образных звеньев}
+	\label{fig:4}
+\end{figure}
+Параметры используемого фильтра: $\nu_{\text{гр}}=7.83$кГц, $R=406$ Ом,$C=0.025$ мкФ,
+$L=4.25$ мГн. 
+
+Амплитудно- и фазочастотные характеристики фильтра показаны на рисунках (\ref{fig:figure3}) и (\ref{fig:figure4}) соответственно.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.9]{graph/graph3}
+	\caption{АЧХ}
+	\label{fig:figure3}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.9]{graph/graph4}
+	\caption{ФЧХ}
+	\label{fig:figure4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{images/1.png}
+	\caption{Прохождение прямоугольного импульса через ВЧФ}
+	\label{fig:ris1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Полосовой фильтр}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{chem/chem4}
+	\caption{ Схема использованного ПФ из 2-х Т-образных звеньев}
+	\label{fig:chem4}
+\end{figure}
+Параметры используемого фильтра: $\nu_1=7.83$ кГц, $\Delta\nu=15.4$ кГц, $R=412$ Ом, $C_1=0.025$ мкФ,
+$C_2=0.025$ мкФ, $L_1=8.5$ мГн, $L_2=4.25$ мГн. 
+
+Амплитудно- и фазочастотные характеристики фильтра показаны на рисунках (\ref{fig:figure5}) и (\ref{fig:figure6}) соответственно.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{graph/graph5}
+	\caption{АЧХ}
+	\label{fig:figure6}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{graph/graph6}
+	\caption{АЧХ}
+	\label{fig:figure6}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{images/2}
+	\caption{Прохождение прямоугольного импульса через ПФ}
+	\label{fig:ris2}
+\end{figure}
+
+
 % \section{Вопросы}
 % \begin{enumerate}
 % \item Как снимаются амплитудные и фазовые характеристики фильтров?

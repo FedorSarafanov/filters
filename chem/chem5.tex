@@ -1,0 +1,34 @@
+\documentclass[border=1pt]{standalone}
+\usepackage[europeanresistors,americaninductors,americancurrents,siunitx]{circuitikz}
+\usepackage{amssymb}
+
+
+\begin{document}
+    \begin{circuitikz}[]
+        \draw (0,0) coordinate(0)
+            to [C,l_=0.025<\micro\farad>] ++(3,0) coordinate(1)
+            to [L,l=4.35<\milli\henry>] ++(0,-3) coordinate(3);
+        
+
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3);
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3);
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3);
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3);
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3);
+        \draw (1) 
+            to [C,l_=0.025<\micro\farad>]  ++(3,0) coordinate(1)
+            to  [L,l=8.5<\milli\henry>]++(0,-3) coordinate(3)
+            to (0,-3)[-*];
+        \draw (0,0) to (1,0)[*-];
+    \end{circuitikz}
+\end{document}
