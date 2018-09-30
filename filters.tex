@@ -337,12 +337,12 @@ Z=i\omega L,\;G=i\omega C.
 \label{eq:5.1.2}
 \omega^2=\frac{2}{LC}(1-\cos\theta)
 \end{equation}
-\begin{figure}[h!] 
-	\centering
-	\includegraphics[]{chem/FLF/ZxT.pdf}
-	\caption{}
-	\label{fig:1.2}
-\end{figure}
+% \begin{figure}[h!] 
+% 	\centering
+% 	\includegraphics[]{chem/FLF/ZxT.pdf}
+% 	\caption{}
+% 	\label{fig:1.2}
+% \end{figure}
 Из периодического характера этого уравнения следует, что физический смысл имеет лишь та часть дисперсионных ветвей, которая лежит в области $|\theta|\leq\pi$. Т.е. набег фазы на одно звено не может превышать $\pi$. Поскольку постоянная распространения $\theta$ связана с длиной волны $\lambda$ соотношением $\lambda=2\pi/\theta$, то из существования $\theta_{\text{max}}=\pi$ вытекает существо-вание $\lambda_{\text{min}}$. Иными словами, волны с длиной в одну ячейку существовать не могут. Этот результат порождён дискретным характером структуры фильтра и может быть предсказан заранее.
 
 \textbf{Полоса прозрачности} ФНЧ, в силу \eqref{eq:3.15}, задаётся условием
@@ -469,7 +469,7 @@ C=\frac{1}{2\rho\omega_{\text{ср}}}
 Графически зависимость времени задержки от частоты изображена на рис.\ref{fig:6.4}
 \subsection{Полосовой фильтр}
 Вид отдельного звена полосового фильтра изображен на рис.\ref{fig:7.1}. Полосовой фильтр служит для пропускания колебаний в полосе частот$\omega_1\leq\omega\leq\omega_2$.
-\begin{figure}[h!]
+\begin{figure}[H]
 	\begin{minipage}{0.49\linewidth}
 		\centering
 		\includegraphics[scale=0.8]{chem/FF/FFT.pdf}
@@ -505,7 +505,7 @@ Z=i\omega L_1+i/\omega C_1,\;G=i\omega C_2+i/\omega L_2.
 	\caption{}
 	\label{fig:6.11}
 \end{figure}
-Так как $\displaystyle 0\leq\sin^2\frac{\theta}{2}\leq1$, то система будет пропускать частоты $\displaystyle\omega_1\leq\omega\leq\frac{1}{\sqrt{L_1C_1}}$ и $\displaystyle frac{1}{\sqrt{L_1C_1}}\leq\omega\leq\omega_2$. На практике интересен случай, когда $\displaystyle \frac{1}{\sqrt{L_1C_1}}=\frac{1}{\sqrt{L_2C_2}}=\omega_0$, $\displaystyle \frac{L_1}{L_2}=\frac{C_1}{C_2}=\alpha$
+Так как $\displaystyle 0\leq\sin^2\frac{\theta}{2}\leq1$, то система будет пропускать частоты $\displaystyle\omega_1\leq\omega\leq\frac{1}{\sqrt{L_1C_1}}$ и $\displaystyle \frac{1}{\sqrt{L_2C_2}}\leq\omega\leq\omega_2$. На практике интересен случай, когда $\displaystyle \frac{1}{\sqrt{L_1C_1}}=\frac{1}{\sqrt{L_2C_2}}=\omega_0$, $\displaystyle \frac{L_1}{L_2}=\frac{C_1}{C_2}=\alpha$
 При этом дисперсионное уравнение принимает вид
 \begin{equation}
 \label{eq:7.4}
@@ -533,7 +533,7 @@ Z=i\omega L_1+i/\omega C_1,\;G=i\omega C_2+i/\omega L_2.
 Z^T_x=\rho\sqrt{1-\frac{\alpha}{4}\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)^2},\;
 Z^\text{П}_x=\frac{\rho}{\sqrt{1-\frac{\alpha}{4}\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)^2}}
 \end{equation}
-где $\rho=\sqrt{L_2/C_1}$. Зависимость этого импеданса от частоты приведена на рис.\ref{fig:7.4}
+где $\rho=\sqrt{L_2/C_1}$.
 % \begin{figure}
 % \begin{minipage}{0.49\linewidth}
 % 	\centering
@@ -591,7 +591,7 @@ $\nu_{\text{гр}}=21.83 \text{ кГц} ,\,R=583\text{ Ом}$, значения 
 	\begin{center}
 		\begin{tabular}{|c|c|}
 		\hline
-		Число звеньев & Время задержки, мкс \\
+		Число звеньев & Время задержки, мс \\
 		\hline
 		6 & 100\\
 		5 & 80\\
@@ -605,7 +605,12 @@ $\nu_{\text{гр}}=21.83 \text{ кГц} ,\,R=583\text{ Ом}$, значения 
 		\end{tabular}
 	\end{center}
 \end{table}
+Расчетное время задержки (из формулы \ref{eq:5.6}):
 
+\begin{equation}
+\tau=25 \text{мс}	
+\end{equation}
+Различия с практикой связаны с сопротивлением в контуре, которое мы не учитывали в теоретических подсчетах.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Фильтр высоких частот}
 \begin{figure}[H]
