@@ -141,6 +141,7 @@ Aa_{21}+B(e^{-i\theta}-a_{22})=0,
 \end{equation}
 Подставляя $\theta^-$ и $\theta^+$ в одно из уравнений системы (\ref{eq:3.2}), можно найти связь между амплитудами напряжения и тока для прямой и обратной волн
 \begin{equation}
+	\label{eq:3.9}
 	B^+=G_xA^+, B^-=-G_xA^-,
 \end{equation}
 где
@@ -208,7 +209,7 @@ I_n=G_x(A_1e^{-i\theta}+A_2e^{i\theta}).
 \begin{equation}
 	\Gamma_0\frac{A_1}{A_2}=-\frac{1-Z_0G_x}{1+Z_0G_x}
 \end{equation}
---коэффициент отражения от левой границы фильтра,а
+--коэффициент отражения от левой границы фильтра, а
 \begin{equation}
 	\Gamma_N\frac{A_2e^{iN\theta}}{A_1e^{-iN\theta}}=
 	-\frac{1-Z_NG_x}{1+Z_NG_x}
@@ -217,6 +218,344 @@ I_n=G_x(A_1e^{-i\theta}+A_2e^{i\theta}).
 
 Решая совместно дисперсионное уравнение (\ref{eq:3.4}) и характеристическое уравнение (\ref{eq:4.4}), найдём спектр собственных (нормальных) частот фильтра и соответствующий ему спектр значений постоянной распространения $\theta$. Очевидно, что этот спектр будет зависеть не только от параметров звена фильтра, но и от условий на его концах. Отметим также, что число нормальных частот всегда совпадает с числом степеней свободы системы.
 
+
+\subsection{Вынужденные колебания}
+Рассмотрим вынужденные колебания в фильтре, составленном из Т-образных звеньев, при условии, что на входе фильтра действует источник синусоидальной ЭДС $E=E_0\cos(\omega t)$ с внутренним сопротивлением $r_0$ (см. \ref{}). Решение в такой системе можно искать в виде синусоидальных колебаний на частоте внешней силы $\omega$. При этом остаются справедливыми уравнения \eqref{}, а граничные условия принимают вид:
+\begin{equation}
+	\label{eq:4.1}
+	V_0=E_0-r_0Z_0,\;V_N=Z_NI_N.
+\end{equation}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[]{chem/picture3}
+	\caption{}
+	\label{fig:3}
+\end{figure}
+Подставляя \eqref{eq:3.2} в \eqref{eq:4.1}, получим 
+\begin{equation}
+	\label{eq:4.2}
+	\begin{gathered}
+	(1+r_0G_x)A_1+(1-r_0G_x)A_2=E_0\\
+	(1-Z_NG_x)e^{-iN\theta}A_1+(1+Z_NG_x)e^{iN\theta}A_2=0
+	\end{gathered}
+\end{equation}
+Отсюда для $A_1$ и $A_2$ будем иметь
+\begin{equation}
+	\label{eq:4.3}
+	\begin{gathered}
+	A_1=\frac{1-\Gamma_0}{2}\cdot\frac{E_0}{1-\Gamma_0\Gamma_Ne^{-2iN\theta}},\\
+	A_2=\frac{1-\Gamma_0}{2}\cdot\frac{E_0\Gamma_Ne^{-2iN\theta}}{1-\Gamma_0\Gamma_Ne^{-2iN\theta}},\\
+	\end{gathered}
+\end{equation}
+Подставляя \eqref{eq:4.3} в \eqref{eq:3.2}, получим следующие выражения для комплексных амплитуд напряжения $V_n$ и $I_n$ тока в n-ой ячейке:
+\begin{equation}
+	\label{eq:4.4}
+	\begin{gathered}
+	V_n=\frac{1-\Gamma_0}{2}\cdot\frac{E_0e^{-in\theta}}{1-\Gamma_0\Gamma_Ne^{-2iN\theta}}\left[1+\Gamma_Ne^{-2i(N-n)\theta}\right],\\
+	I_n=\frac{1-\Gamma_0}{2}\cdot\frac{E_0e^{-in\theta}}{1-\Gamma_0\Gamma_Ne^{-2iN\theta}}G_x\left[1-\Gamma_Ne^{-2i(N-n)\theta}\right],\\
+	\end{gathered}
+\end{equation}
+Из \eqref{eq:4.4} следует, что если частота внешней ЭДС совпадает с одной из собственных частот фильтра, то амплитуды напряжений и токов во всех звеньях фильтра принимают бесконечно большие значения (явление резонанса). Очевидно, что это возможно лишь в отсутствии затухания, т. е. при условии $\Im\omega_m=0$. В реальных системах всегда существуют потери ($\omega_m=\omega'_m+i\omega''_m$) и знаменатель в \eqref{eq:4.4} не обращается в ноль. При этом в случае произвольных потерь картина резонанса достаточно сложна и далека от той, какую мы имеем в одиночном резонансном контуре. Однако, при $\omega''_m/\omega'_m<<1$ эта картина существенно упрощается, и влияние потерь можно описать на привычном языке добротности, вводя её для каждой моды отношением
+\begin{equation}
+\label{eq:4.5}
+Q_m=\omega'_m/\omega''_m
+\end{equation}
+Таким образом, для системы со многими степенями свободы не имеет смысла говорить о добротности системы вообще, необходимо оговаривать, о добротности какой моды идёт речь.
+
+При изучении вынужденных колебаний важную роль играют два семейства статических характеристик: семейство амплитудно-частотных характеристик (АЧХ) и семейство фазо-частотных характеристик (ФЧХ). Эти семейства находятся из выражения для коэффициента передачи, представляющего собой отношение комплексной амплитуды напряжения на выходе фильтра к амплитуде ЭДС на входе, т.е.
+\begin{equation}
+\label{eq:4.6}
+W(\omega)=\frac{V_N(\omega)}{E_0(\omega)}=\frac{(1-\Gamma_0)(1+\Gamma_N)e^{-iN\theta}}{2\left(1-\Gamma_0\Gamma_Ne^{-2iN\theta}\right)}
+\end{equation}
+По определению АЧХ -- это функция 
+\begin{equation}
+\label{eq:4.7}
+A(\omega)=|W(\omega)|
+\end{equation}
+а ФЧХ -- функция
+\begin{equation}
+\label{eq:4.8}
+\Phi(\omega)=-argW(\omega)
+\end{equation}
+Очевидно, что вид того и другого семейства характеристик зависит от условий на концах фильтра.
+
+Рассмотрим влияние этих условий на $A(\omega)$ и $W(\omega)$ в полосе прозрачности фильтра, полагая для простоты, что нагрузка фильтра чисто активная (т. е. $\Gamma_0$ и $\Gamma_N$ –действительные функции). При этом
+\begin{equation}
+\label{eq:4.9}
+A(\omega)=\frac{1-\Gamma_0}{2}\cdot\frac{1+\Gamma_N}
+{\sqrt{1-\Gamma_0\Gamma_N\cos2N\theta+\Gamma^2_0\Gamma^2_N}}
+\end{equation}
+Из полученного выражения следует, что если фильтр согласован на обоих концах ($\Gamma_0=\Gamma_N=0$), то $A(\omega)=1/2$, т.е. напряжение источника ЭДС делится поровну между фильтром и внутренним сопротивлением источника. Если фильтр согласован только на входе ($\Gamma_0=0$), или только на выходе($\Gamma_N=0$), то $A(\omega)=(1+\Gamma_N)/2$ и $A(\omega)=(1-\Gamma_0)/2$, соответственно. Во всех трёх случаях АЧХ не зависит от числа звеньев фильтра.
+ 
+Если фильтр согласован хотя бы на одном из своих концов, а нагрузка на другом конце -- чисто активная, то существенно упрощается и $\Phi(\omega)$:
+\begin{equation}
+\label{eq:4.10}
+\Phi(\omega)=N\theta(\omega)
+\end{equation}
+Т.е. ФЧХ с точностью до множителя N сводится к дисперсионной характеристике фильтра.
+
+Многозвенные фильтры представляют собой разновидность длинных линий и используются в радиотехнических устройствах в качестве \textit{линий задержки}. Время запаздывания сигнала при прохождении его через фильтр легко оценить для случая узкополосного сигнала при условии, что спектр его лежит в полосе прозрачности фильтра и укладывается в диапазон частот, в котором фазо-частотную характеристику фильтра можно считать линейной. Спектральную плотность такого сигнала на выходе фильтра для прямой волны можно записать в виде
+\begin{equation}
+\label{eq:4.11}
+u_N(\eta)=A_1(\xi)e^{i[(\Omega+\eta)t-N\theta(\Omega+\eta)t]}
+\end{equation}
+Учитывая, что $|\eta|\leq\Delta\omega$, где $\Delta\omega$ -- полуширина спектра, и принимая во внимание условие узкополосности $\Delta\omega<<\Omega$, разложим в этом выражении нелинейную функцию $\theta(\Omega+\eta)$ в ряд по степеням $\eta$, ограничившись двумя первыми членами:
+\begin{equation}
+\label{eq:4.12}
+\theta(\Omega+\eta)\approx\theta(\Omega)+\left.\frac{d\theta}{d\omega}\right|_\Omega \eta
+\end{equation}
+При этом выражение \eqref{eq:4.11} примет вид
+\begin{equation}
+\label{eq:4.13}
+u_N(\eta)\approx A_1(\xi)e^{i[\Omega t-N\theta\Omega]}e^{i(t-N\frac{d\theta}{d\omega}\eta)}
+\end{equation}
+Отсюда следует, что время задержки сигнала при прохождении через N-звенный фильтр равно $\tau_N=N\frac{d\omega}{d\theta} \Omega$. Т.е. групповая скорость $(d\omega\ /d\theta)$ имеет смысл времени запаздывания, приходящегося на одно звено.
+\subsection{Фильтр низкой частоты (ФНЧ)}
+Вид отдельного звена ФНЧ изображен на рис \ref{fig:1.1}. ФНЧ служит для пропускания колебаний низкой частоты от $\omega=0$ до $\omega_{\text{ср}}$ (\textit{частота "среза"}). Для ФНЧ
+\begin{equation}
+\label{eq:5.1.1}
+Z=i\omega L,\;G=i\omega C.
+\end{equation}
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FLF/FLFT.pdf}
+		\caption*{Т-образное звено}
+	\end{minipage}
+\begin{minipage}{0.49\linewidth}
+	\centering
+	\includegraphics[]{chem/FLF/FLFP.pdf}
+	\caption*{П-образное звено}
+\end{minipage}
+\caption{}
+\label{fig:1.1}
+\end{figure}
+При этом \textbf{диспресионное уравнение} имеет вид 
+\begin{equation}
+\label{eq:5.1.2}
+\omega^2=\frac{2}{LC}(1-\cos\theta)
+\end{equation}
+\begin{figure}[h!] 
+	\centering
+	\includegraphics[]{chem/FLF/ZxT.pdf}
+	\caption{}
+	\label{fig:1.2}
+\end{figure}
+Из периодического характера этого уравнения следует, что физический смысл имеет лишь та часть дисперсионных ветвей, которая лежит в области $|\theta|\leq\pi$. Т.е. набег фазы на одно звено не может превышать $\pi$. Поскольку постоянная распространения $\theta$ связана с длиной волны $\lambda$ соотношением $\lambda=2\pi/\theta$, то из существования $\theta_{\text{max}}=\pi$ вытекает существо-вание $\lambda_{\text{min}}$. Иными словами, волны с длиной в одну ячейку существовать не могут. Этот результат порождён дискретным характером структуры фильтра и может быть предсказан заранее.
+
+\textbf{Полоса прозрачности} ФНЧ, в силу \eqref{eq:2.15}, задаётся условием
+\begin{equation}
+\label{eq:5.1.3}
+\omega^2\leq\frac{4}{LC}\; (\xi^2=\frac{\omega^2}{\omega^2_{\text{ср}}}\leq1)
+\end{equation}
+
+\textbf{Характеристический импеданс} фильтра, состоящего из Т- и П-образных звеньев задаётся соотношениями
+\begin{equation}
+	Z^T_x=\rho\sqrt{1-\xi^2},\;
+	Z^{\text{П}}_x=\frac{\rho}{\sqrt{1-\xi^2}},\;
+	(\rho=\sqrt{L/C})
+\end{equation}
+\begin{figure}[h!]
+\begin{minipage}{0.49\linewidth}
+	\centering
+	\includegraphics[]{chem/FLF/ZxT.pdf}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+	\centering
+	\includegraphics[]{chem/FLF/ZxP.pdf}
+\end{minipage}
+\caption{}
+\label{fig:1.3}
+\end{figure}
+Соответствующие им частотные зависимости изображены на рис. \ref{fig:1.3}.
+
+\textbf{Параметры звеньев фильтра} рассчитываются по формулам
+\begin{equation}
+	\label{eq:5.5}
+	L=\frac{2\rho}{\omega_{\text{ср}}},\;
+	C=\frac{2}{\rho\omega_{\text{ср}}}
+\end{equation}
+Время задержки на одно звено даётся выражением
+\begin{figure}[H]
+	\centering
+	\includegraphics[]{chem/FLF/tau1.pdf}
+	\caption{}
+	\label{fig:1.4}
+\end{figure}
+\begin{equation}
+\label{eq:5.6}
+\tau=\frac{2}{\omega_{\text{ср}}\sqrt{1-\xi^2}}
+\end{equation}
+Графически зависимость времени задержки от частоты изображена на рис. \ref{fig:1.4}
+\section{Фильтр высокой частоты (ФВЧ)} 
+Вид отдельного звена ФВЧ изображен на рис \ref{fig:6.1}. ФВЧ служит для пропускания колебаний с частотами $\omega\geq$. Для ФНЧ
+\begin{equation}
+\label{eq:6.1.1}
+Z=i/\omega C,\;G=i/\omega L.
+\end{equation}
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/FHFT.pdf}
+		\caption*{Т-образное звено}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/FHFP.pdf}
+		\caption*{П-образное звено}
+	\end{minipage}
+	\caption{}
+	\label{fig:6.1}
+\end{figure}
+При этом \textbf{диспресионное уравнение} имеет вид 
+\begin{equation}
+\label{eq:6.1.2}
+\omega^2=\frac{1}{2LC(1-\cos\theta)}
+\end{equation}
+График дисперсионной зависимости приведен на рис. \ref{fig:6.2}
+\begin{figure}[h!]
+	\centering 
+	\includegraphics[]{chem/FHF/ZxP2.pdf}
+	\caption{}
+	\label{fig:6.2}
+\end{figure}
+
+
+\textbf{Полоса прозрачности} ФНЧ, определяется из условия 
+\begin{equation}
+\label{eq:6.1.3}
+1-\frac{1}{4\omega^2LC\geq0}\;(\xi^2\geq1)
+\end{equation}
+
+\textbf{Характеристический импеданс} фильтра, состоящего из Т- и П-образных звеньев задаётся соотношениями
+\begin{equation}
+Z^T_x=\rho\sqrt{1-\frac{1}{\xi^2}},\;
+Z^{\text{П}}_x=\frac{\rho\xi}{\sqrt{\xi^2-1}},\;
+(\rho=\sqrt{L/C})
+\end{equation}
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/ZxP2.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/ZxT2.pdf}
+	\end{minipage}
+	\caption{}
+	\label{fig:6.3}
+\end{figure}
+Соответствующие им частотные зависимости изображены на рис. \ref{fig:6.3}.
+
+\textbf{Параметры звеньев фильтра} рассчитываются по формулам
+\begin{equation}
+\label{eq:6.5}
+L=\frac{\rho}{2\omega_{\text{ср}}},\;
+C=\frac{1}{2\rho\omega_{\text{ср}}}
+\end{equation}
+Время задержки на одно звено даётся выражением
+\begin{figure}[h!]
+	\centering
+	\includegraphics[]{chem/FHF/tau2.pdf}
+	\caption{}
+	\label{fig:6.4}
+\end{figure}
+\begin{equation}
+\label{eq:6.6}
+\tau=\frac{1}{\omega_{\text{ср}}\xi\sqrt{\xi^2-1}}
+\end{equation}
+Графически зависимость времени задержки от частоты изображена на рис.\ref{fig:6.4}
+\subsection{Полосовой фильтр}
+Вид отдельного звена полосового фильтра изображен на рис.\ref{fig:7.1}. Полосовой фильтр служит для пропускания колебаний в полосе частот$\omega_1\leq\omega\leq\omega_2$.
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/FHFT.pdf}
+		\caption*{Т-образное звено}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[]{chem/FHF/FHFP.pdf}
+		\caption*{П-образное звено}
+	\end{minipage}
+	\caption{}
+	\label{fig:7.1}
+\end{figure}
+Для полосового фильтра
+\begin{equation}
+\label{eq:7.1}
+Z=i\omega L_1+i/\omega C_1,\;G=i\omega C_2+i/\omega L_2.
+\end{equation}
+\textbf{Дисперсионное уравнение} полосового фильтра определяется следующей зависимостью
+\begin{equation}
+	\label{eq:7.2}
+	f(\omega^2)=\sin^2\frac{\theta}{2}
+\end{equation}
+где
+\begin{equation}
+	\label{eq:7.3}
+	f(\omega^2)=\frac{(L_1C_1\omega^2-1)(L_2C_2\omega^2-1)}{4\omega^2L_2C_1}
+\end{equation}
+
+\begin{figure}[h!]
+	\centering 
+	\includegraphics[]{chem/FHF/ZxP2.pdf}
+	\caption{}
+	\label{fig:7.2}
+\end{figure}
+Так как $\displaystyle 0\leq\sin^2\frac{\theta}{2}\leq1$, то система будет пропускать частоты $\displaystyle\omega_1\leq\omega\leq\frac{1}{\sqrt{L_1C_1}}$ и $\displaystyle frac{1}{\sqrt{L_1C_1}}\leq\omega\leq\omega_2$. На практике интересен случай, когда $\displaystyle \frac{1}{\sqrt{L_1C_1}}=\frac{1}{\sqrt{L_2C_2}}=\omega_0$, $\displaystyle \frac{L_1}{L_2}=\frac{C_1}{C_2}=\alpha$
+При этом дисперсионное уравнение принимает вид
+\begin{equation}
+\label{eq:7.4}
+\left(\frac{\omega^2}{\omega^2_0}-1\right)\frac{\omega_0}{2\omega}\sqrt{\alpha}=\pm\sin\frac{\theta}{2}
+\end{equation}
+Соответствующие ему дисперсионные кривые изображены на рис.\ref{fig:7.3}
+\begin{equation}
+\label{eq:7.5}
+\omega_1=\frac{\omega_0}{\sqrt{\alpha}}(\sqrt{1+\alpha}-1),\;
+\omega_2=\frac{\omega_0}{\sqrt{\alpha}}(\sqrt{1+\alpha}+1)
+\end{equation}
+%\begin{figure}
+%	\includegraphics[]{}
+%	\caption{}
+%	\label{fig:7.3}
+%\end{figure}
+\textbf{Полоса прозрачности} фильтра определяется из условия 
+\begin{equation}
+\label{eq:7.6}
+\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)^2\alpha\leq 4.
+\end{equation}
+\textbf{Характеристический импеданс фильтра}, состоящего из Т- и П- образных звеньев соотношениями
+\begin{equation}
+\label{eq:7.7}
+Z^T_x=\rho\sqrt{1-\frac{\alpha}{4}\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)^2},\;
+Z^\text{П}_x=\frac{\rho}{\sqrt{1-\frac{\alpha}{4}\left(\frac{\omega}{\omega_0}-\frac{\omega_0}{\omega}\right)^2}}
+\end{equation}
+где $\rho=\sqrt{L_2/C_1}$. Зависимость этого импеданса от частоты приведена на рис.\ref{fig:7.4}
+\begin{figure}
+\begin{minipage}{0.49\linewidth}
+	\centering
+	\includegraphics[]{chem/FHF/FHFT.pdf}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+	\centering
+	\includegraphics[]{chem/FHF/FHFP.pdf}
+\end{minipage}
+\caption{}
+\label{fig:7.4}
+\end{figure}
+
+\textbf{Параметры фильтра} рассчитываются по следующим формулам:
+\begin{equation}
+\label{eq:7.8}
+\begin{gathered}
+L_1=\frac{\sqrt{\alpha}\rho}{\omega_0}=\frac{2\rho}{\omega_2-\omega_1},\;
+L_2=\frac{L_1}{\alpha}=\frac{\rho(\omega_2-\omega_1)}{2\omega^2_0}\\
+C_1=\frac{1}{\omega^2_0L_1}=\frac{\omega_2-\omega_1}{2\rho\omega_1\omega_2},\;
+C_2=\alpha C_1=\frac{2}{\rho(\omega_2-\omega_1)}\\
+\rho=\sqrt{\frac{L_2}{C_1}}=\sqrt{\frac{L_1}{\alpha C_1}}
+\end{gathered}
+\end{equation}
 
 \section{Практическая часть}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -321,7 +660,7 @@ $C_2=0.025$ мкФ, $L_1=8.5$ мГн, $L_2=4.25$ мГн.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{graph/graph6}
-	\caption{АЧХ}
+	\caption{ФЧХ}
 	\label{fig:figure6}
 \end{figure}
 

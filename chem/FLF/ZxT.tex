@@ -1,0 +1,87 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[english,russian]{babel}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage
+    {
+        circuitikz,
+        tikz,
+        pgfplots,
+        verbatim,
+        tikz-3dplot
+    }
+\usetikzlibrary
+    {
+        arrows,
+        patterns,
+        angles,
+        quotes,
+        calc, 
+        3d, 
+        backgrounds, 
+        positioning,
+        babel,
+        circuits
+    }
+\usepackage{ifthen}
+\newcommand{\lineann}[4][0.5]{%
+    \begin{scope}[rotate=#2, blue,inner sep=2pt, ]
+        \draw[dashed, blue!40] (0,0) -- +(0,#1)
+            node [coordinate, near end, pos=0.9] (a) {};
+        \draw[dashed, blue!40] (#3,0) -- +(0,#1)
+            node [coordinate, near end,  pos=0.9] (b) {};
+        \draw[|<->|] (a) -- node[fill=white, scale=0.8] {#4} (b);
+    \end{scope}
+}
+\newcommand{\polarize}[4][magenta]{%
+	\begin{scope}[xshift={#2 cm}, yshift=0.75cm]
+		\draw[dashed,->] (0,0.75) -- ++(90:0.75) node[above] {$y$};
+		\draw[dashed,->] (0,0.75) -- ++(0:0.75) node[right] {$x$};
+		\draw[dashed] (0,0.75) -- ++(#3:0.75);
+		\draw (0,0.75) circle (0.3cm);
+        \xdef\angle{#3}
+        \draw [-,#1, line width=1pt] (0,0.75) -- ++({180+\angle}:0.3);
+        \draw [->,#1, line width=1pt] (0,0.75) -- ++({\angle}:0.3);
+
+        \ifthenelse{\angle=0 \OR \angle=90}{}
+        {
+			\draw[dashed] (0,0.75) coordinate (a) node[right] {}
+			-- (0,0.75) coordinate (b) node[left] {}
+			-- (0,0.75)++(#3:1) coordinate (c) node[above right] {}
+			pic["$#4$", draw=black, <-, solid, angle eccentricity=1.5, angle radius=0.7cm]
+				{angle=c--b--a};
+        }
+
+	\end{scope}
+}
+
+
+\newcommand{\polvec}[2]{%
+	\begin{scope}[xshift={#1 cm}, yshift=0cm]
+		\xdef\angle{#2}
+		\draw [-,magenta, line width=1pt] (0,0.75) -- ++({180+90}:{0.25*cos(\angle)});
+		\draw [->,magenta, line width=1pt] (0,0.75) -- ++({90}:{0.25*cos(\angle)});
+	\end{scope}
+}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\newcommand{\midarrow}{\tikz \draw[->] (0,0) -- +(.1,0);}
+\begin{document}
+	\begin{tikzpicture}
+	\draw[xshift=0mm,-latex] (0,0) -- (4,0)
+	node [anchor=west]
+	{$\xi$};
+	\draw[xshift=0mm,-latex] (0,0) -- (0,4.5)
+	node [anchor=south]
+	{$|Z^T_x|$};
+	\draw [thick,xshift=0mm, y=1cm, x=1cm,
+	declare function={w(\t)=3*sqrt(1-(\t*0.4)^2);}] plot [domain=0:2.50, samples=3000,
+	smooth] (\x,{w(\x)});
+	\draw [dashed](0,3) node [left]{$\rho$}--(3,3);
+	\draw (2.5,0) node[below]{1};
+	\draw [dashed,thick,xshift=0mm, y=1cm, x=1cm,
+	declare function={w(\t)=3*sqrt((\t*0.4)^2-1);}] plot [domain=2.5001:4, samples=1000,
+	smooth] (\x,{w(\x)});
+	\end{tikzpicture}
+\end{document}
