@@ -1,0 +1,62 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{cmap,pgfplots,pgfplotstable}
+
+\begin{document}
+	\begin{tikzpicture}
+		\begin{axis}[
+			ylabel={Фаза выходного сигнала, рад},
+			xlabel={Частота генератора, Гц},
+			%
+			grid=both,
+			grid style={line width=1pt, draw=black!20},
+			major grid style={line width=.5pt,draw=black!90},
+			% %
+ 			% ticklabel style={font=\tiny,fill=white},    
+	    	% axis lines=middle, 	
+	    	% x label style={at={(axis description cs:0.5,-0.08)},anchor=north},
+	    	% y label style={at={(axis description cs:-0.08,.5)},rotate=90,anchor=south},
+	     	% y dir=reverse
+	     	% restrict y to domain=0:2,    		
+	     	% restrict x to domain=0:3000,    
+	     	% %		
+			% legend style={
+			% 	at={
+			% 		(rel axis cs:0,1)
+			% 	},
+			% 	anchor=north west,
+			% 	draw=none,
+			% 	inner sep=0pt,
+			% 	fill=gray!10
+			% },		
+			% %
+            minor y tick num=4,
+			minor x tick num=4,   
+% 			xmode=log,
+			% ymode=normal,
+% 			xtick distance=200,
+			ytick distance=2,
+% 			unit vector ratio=1 25,
+			xmin = 0,
+			ymin = 0,	
+			ymax= 15,
+% 			xmax=20
+		]
+		\addplot +[mark=*, mark size=1.5pt] 
+			plot [error bars/.cd, y dir = both, y explicit] 
+			table [
+			    create on use/phi2/.style={
+			        create col/expr={
+			        	\thisrow{phi}/2*3.1415
+			        }
+			    },				
+				x=f, 
+				y=phi2, 
+			]{../data/hpf.tsv};
+			%\addlegendentry{}
+% 			-x^3-0.01x
+		\end{axis}
+	\end{tikzpicture}	
+\end{document}
